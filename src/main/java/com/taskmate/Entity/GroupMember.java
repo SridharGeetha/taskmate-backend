@@ -18,4 +18,8 @@ public class GroupMember {
     private Long id;
     private Long groupId;
     private Long userId;
+    public GroupMember(Long userId, Long groupId) {
+        this.userId = userId;
+        this.groupId = groupId;
+    }
 }

@@ -4,28 +4,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.taskmate.Entity.User;
 import com.taskmate.Repository.UserRepository;
-import com.taskmate.ServiceImpl.UserServiceImpl;
+import com.taskmate.ServiceInterface.Services;
 
-public class UserService implements UserServiceImpl {
+public class UserService implements Services<User> {
 
     @Autowired
     private UserRepository userRepository;
 
     @Override
-    public User createUser(User user) {
+    public User create(User user) {
         User newUser = new User(user.getName(), user.getEmail());
         return userRepository.save(newUser);
     }
 
     @Override
-    public User getUser(Long id) {
+    public User get(Long id) {
         if (id == null)
             return new User();
         return userRepository.findById(id).orElseThrow();
     }
 
     @Override
-    public void deleteUser(Long id) {
+    public void delete(Long id) {
         if (id == null) {
             System.out.println("Id is null");
             return;
@@ -34,7 +34,7 @@ public class UserService implements UserServiceImpl {
     }
 
     @Override
-    public User updateUser(Long id,User user) {
+    public User update(Long id,User user) {
         if (id == null)
             return new User();
         User updateUser =   userRepository.findById(id).orElseThrow();

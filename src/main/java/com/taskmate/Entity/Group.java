@@ -23,6 +23,11 @@ public class Group{
 
     private String name;
     private Long createdBy;
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
+    public Group(String name, Long createdBy, LocalDateTime createdAt) {
+        this.name = name;
+        this.createdBy = createdBy;
+        this.createdAt = createdAt;
+    }
 }
  

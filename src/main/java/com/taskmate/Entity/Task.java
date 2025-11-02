@@ -16,5 +16,17 @@ public class Task {
     private boolean isCompleted;
     private String title;
     private String description;
+
+    public Task(Long categoryId, boolean isCompleted, String title, String description) {
+        this.categoryId = categoryId;
+        this.isCompleted = isCompleted;
+        this.title = title;
+        this.description = description;
+    }
+
+    public Task() {
+        //TODO Auto-generated constructor stub
+    }
+
 }
 

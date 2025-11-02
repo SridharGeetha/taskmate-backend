@@ -9,34 +9,33 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.taskmate.Entity.User;
-import com.taskmate.Service.UserService;
+import com.taskmate.Entity.Group;
+import com.taskmate.Service.GroupService;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
-    
+@RequestMapping("/group")
+public class GroupController {
+
     @Autowired
-    private UserService userService;
+    private GroupService groupService;
 
     @PostMapping
-    public User createUser(User user){
-       return userService.create(user);
-    }
-
-    @PutMapping("/{id}")
-    public User updatUser(@PathVariable("id") Long id,User user){
-        return userService.update(id, user);
+    public Group createGroup(Group data){
+        return groupService.create(data);
     }
 
     @GetMapping("/{id}")
-    public User getUser(@PathVariable("id") Long id){
-        return userService.get(id);
-    }   
+    public Group getGroup(@PathVariable("id") Long id){
+        return groupService.get(id);
+    }
+
+    @PutMapping("/{id}")
+    public Group updateGroup(@PathVariable("id") Long id,Group data){
+        return groupService.update(id, data);
+    }
 
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id){
-        userService.delete(id);
+    public void deleteGroup(@PathVariable("id") Long id){
+        groupService.delete(id);
     }
-    
 }
